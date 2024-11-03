@@ -7,7 +7,16 @@ const server = new SMTPServer({
             console.log(mailParsed)
         })
         stream.on("end",callback)
-    }
+    },
+    onRcptTo(address, session, callback) {
+         callback()
+    },
+    onMailFrom(address, session, callback) {
+        callback()
+    },
+    onConnect(session, callback) {
+        callback()
+    },
 })
 
 server.listen(25,()=>{
